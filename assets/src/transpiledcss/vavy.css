@@ -154,6 +154,10 @@ blockquote {
   margin-bottom: 0.5em;
   font-family: Cuprum, sans-serif;
 }
+.right-default-column .content .post-body {
+  font-family: "Open sans", Roboto;
+  font-size: 0.85em;
+}
 .right-default-column .content a.article-title {
   text-decoration: none;
   color: #000;
@@ -305,6 +309,14 @@ blockquote {
 .right-default-column .pagination a:hover {
   text-decoration: none;
   border: 2px solid #e51843;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Cuprum;
 }
 hr {
   margin-bottom: 0.5em;
