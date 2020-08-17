@@ -1,0 +1,16 @@
+<div class="row post-pagination">
+    <div class="col-md-5 text-left newer-post">
+    {{#prev_post}}
+        <i class="fas fa-chevron-left"></i> <a href="{{url}}"> {{title}}</a>
+    {{else}}
+        <i class="fas fa-chevron-left"> </i><span>No previous post !</span>
+    {{/prev_post}}
+    </div>
+    <div class="col-md-5  offset-md-2 text-right next-post">
+            {{#next_post}}
+        <a href="{{url}}"></i> {{title}} </i></a> <i class="fas fa-chevron-right"></i>
+    {{else}}
+        <span>No next post!</span> <i class="fas fa-chevron-right"></i>
+    {{/next_post}}
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="text-center feature-aside sticky-top">
+    {{#post}} 
+        <div class="current-post">
+
+                <p>
+                    {{title}}
+                </p>
+                <span class="badge badge-pill badge-dark"><i class="far fa-clock"></i> {{reading_time seconds=(t "< 1 min read") minute=(t "1 min read") minutes=(t "% mins read")}}</span>
+        </div>
+    {{/post}} 
+
+{{#get "posts" include="tags,authors" filter="featured:true" limit="5" as |featured|}}
+<div class="featured-posts">
+  <p class="recent-posts-header">Recent Posts:</p>
+    {{#foreach featured}}
+        <div class="recent-post">
+            {{!-- <p class="recent-posts-title text-default"><a href="{{url}}">{{title}}</a></p> --}}
+            <a href="{{url}}">{{title}}</a>
+            <p class="featured-tags"><i class="fas fa-tags text-muted"></i> {{tags separator=", "}}</p>
+            <p class="time-since-post"><i class="far fa-clock text-success"></i> {{date published_at timeago="true"}}</p>
+        </div>
+        <hr>
+    {{/foreach}}
+</div>
+{{else}}
+    <p>No featured posts...</p>
+{{/get}}
+</div>

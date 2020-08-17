@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700|Noto+Serif:400,400italic,700,700italic' rel='stylesheet'
+        type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tulpen+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{asset "/vendor/css/bootstrap/bootstrap.min.css"}}">
+    <link rel="shortcut icon" href="{{asset "/images/favicon.ico"}}">
+
+    {{!-- <link rel="stylesheet" href="{{asset "vendor/css/highlightjs/atom-one-dark.min.css"}}"> --}}
+
+
+    {{!-- Styles'n'Scripts --}}
+    {{!-- <link rel="stylesheet" type="text/css" href="{{asset "built/theme.css"}}" /> 
+    <link rel="stylesheet" type="text/css" href="{{asset "built/global.css"}}" />  --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" /> 
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}} 
+    {{ghost_head}}
+
+</head>
+
+<body class="{{body_class}}">
+    <div class="container-fluid h-100">
+        <div class="row justify-content-center h-100">
+            <div class="col-2 left-default-column text-center fixed-top">
+                <img class="profile-image img-fluid" src="{{asset "images/profile.jpg"}}" alt="profile image" />
+                <p class="blog text-center">CODES REALM</p>
+                <p class="moto">A Software & Cloud Engineering Journal.</p>
+
+                <p class="quick-tag"><u>Quick Tags</u></p>
+                <p class="topics"><a href="/tag/c-2/">C# / .Net</a></p>
+                <p class="topics"><a href="/tag/javascript/">JavaScript / TypeScript</a></p>
+                <p class="topics"><a href="/tag/azure/">Azure</a></p>
+                <p class="topics"><a href="/tag/python/">Python</a></p>
+                <p class="topics"><a href="/tag/java/">Kotlin / Java</a></p>
+
+                {{!-- <p class="quote">
+                <i class="fa fa-quote-left" aria-hidden="true"></i> Any fool can write code that a computer can understand. Good programmers write code that humans can understand <i class="fa fa-quote-right" aria-hidden="true"></i> - <em>Martin Fowler</em>
+                </p> --}}
+            </div>
+            <div class="col-10 right-default-column offset-md-2">
+
+                {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}} 
+                
+                <div class="row">
+                    <div class="col-md-10 content">
+                        <div class="row navigation-container">
+                            <div class="col-md-12 navigation-link text-right">
+                                <span><a href="/">HOME</a></span>
+                                <span><a href="/about">ABOUT</a></span>
+                                <span><a href="/projects">PROJECTS</a></span>
+                                <span><a href="/contact">CONTACT</a></span>
+                                <span id="overlaytrigger"><i class="fas fa-search"></i></span>
+                            </div>
+                        </div>
+
+                        {{{body}}} 
+                    </div>
+                    <div class="col-md-2">
+                        {{>featureds}}
+
+                        <a id="back2Top" title="Back to top" href="#">&#10148;</a>
+                    </div>
+                </div>
+
+
+                <div id="myOverlay" class="overlay">
+                    <span id="closeoverlay" class="closebtn" title="Close Overlay"><i class="fas fa-times"></i></span>
+                    <div id="overlay-contentid" class="overlay-content">
+                        <input class="typeahead" type="text" placeholder="Search.."/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {{!-- jQuery + Fitvids, which makes all video embeds responsive --}}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script> 
+    
+    {{#if pagination.pages}}
+        <script>
+            var maxPages = parseInt('{{pagination.pages}}');
+        </script>
+        <script src="{{asset "js/infinitescroll.js"}}"></script> 
+    {{/if}} 
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="https://unpkg.com/@tryghost/content-api@1.2.5/umd/content-api.min.js"></script>
+    {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}} 
+    
+    <script>
+
+    //Wait for other things to be loaded so the site doesn't wait on the search
+    $(document).ready(function() {
+
+    {{!-- https://html-online.com/articles/dynamic-scroll-back-top-page-button-javascript/ --}}
+    {{!-- https://www.w3schools.com/howto/howto_css_fullscreen_search.asp --}}
+
+
+        var overlayElement = document.getElementById("myOverlay");
+
+        document.getElementById("overlaytrigger").addEventListener('click', function(){
+            overlayElement.style.display = "block";
+        });
+
+        document.getElementById("closeoverlay").addEventListener('click', function(){
+            overlayElement.style.display = "none";
+        })
+
+
+
+         /*Scroll to top when arrow up clicked BEGIN*/
+        $(window).scroll(function () {
+            var height = $(window).scrollTop();
+            if (height > 100) {
+                $('#back2Top').fadeIn();
+            } else {
+                $('#back2Top').fadeOut();
+            }
+        });
+
+
+        $("#back2Top").click(function (event) {
+            event.preventDefault();
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
+        });
+
+        //New bloodhound to make it searchable
+        var searchDataSource = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local: {{>blogsearch}}
+        });
+
+                    //Build the typeahead
+        $('#overlay-contentid .typeahead').typeahead(null, {
+            //https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#jquerytypeaheadoptions-datasets
+                name: 'search',
+                limit: 10,
+                //source is the bloodhound variable
+                source: searchDataSource,
+                display: function(data){
+                    return "";
+                },
+                templates: {
+                notFound: [
+                    '<div class="empty-message searchparagraph">',
+                    'unable to find any post that match the current query',
+                    '</div>'
+                ].join('\n'),
+                suggestion: function(data) {
+                    const slug = data.slug;
+                    const title = data.title;
+                    return `<p class="searchparagraph text-left"><strong><a href="/${slug}"><i class="fas fa-circle-thin"></i> ${title}</a></strong></p>`;
+                }
+            }
+        }); 
+    });
+
+
+    $("img").addClass("img-fluid");
+    </script>
+
+    {{{block "scripts"}}} 
+    
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}} 
+    
+    {{ghost_foot}}
+
+</body>
+
+</html>

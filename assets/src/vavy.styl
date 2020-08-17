@@ -1,0 +1,260 @@
+html, body
+    height : 100%
+    margin: 0
+
+@import './scrolltotop'
+
+blockquote
+    border-left: .25rem solid #3eb0ef;
+    padding-left: 2rem;
+    font-style: italic;
+
+#overlaytrigger
+    font-size: 30px
+    &:hover
+        cursor: pointer;
+        color: #e51843;
+
+.left-default-column
+    background: linear-gradient(to bottom, #0e3d66 0%,#072035 100%)
+    color: white
+    padding-top: 3%
+    height: 100%;
+
+    .profile-image
+        border-radius: 50%
+        border: 9px solid #8080808a
+        width: 8em
+        height: 8em
+        margin-bottom: 10px
+    
+    .blog
+        font-weight: 400
+        letter-spacing: -3px
+        color: #fff
+        font-size: 1.7em
+        background: #e51843;
+        margin: 10px auto;
+        font-family: 'Montserrat', sans-serif;
+        padding: 0.2em 0;
+
+    .moto, .quick-tag
+        font-family: 'Cuprum', sans-serif;
+        font-size: 1.1em
+
+    .quick-tag
+        margin-top: 60px;
+        margin-bottom: 5px
+    .topics
+        font-family: 'Cuprum', sans-serif;
+        font-size: 1.1em
+        margin-bottom: 5px
+    
+    .quote
+        color: grey
+        position: absolute
+        bottom: 5px
+        font-family: 'Cuprum', sans-serif;
+        padding-right: 10px;
+        .fa-quote-left, .fa-quote-right
+            color: #164b78
+
+.right-default-column
+    .navigation-container
+        margin-top: 5%
+        .navigation-link
+            margin-right: 10px
+            margin-bottom: 20px
+            span
+                margin-right: 10px
+            .svg-inline--fa
+                width: 1.9rem;
+                vertical-align: middle;
+            a
+                font-weight: 400
+                color: black
+                text-decoration: none
+                font-family: Cuprum, sans-serif;
+                font-size: 1.9rem
+                &:hover
+                    border-bottom: 3px solid red
+                    font-weight: bold
+
+    .post-image-div
+        display: flex
+        align-content: center
+        margin-bottom: 2em
+    .page-post-image
+        height: 15em
+        margin: 0 auto
+
+    .content
+        font-family: Georgia, sans-serif;
+        font-size: 1.2em
+        color: #343f44
+        line-height: 1.6em
+        letter-spacing: .02rem
+        .blog-date
+            font-family: 'Montserrat', sans-serif;
+            .post-day
+                display: block;
+                font-size: 5.25rem;
+                font-weight: 900;
+                // color: #e51843;
+                color: #818182
+                margin-bottom: -4px
+                margin-top: 9px;
+            .post-month-year
+                text-transform: uppercase;
+                font-size: 0.7em
+                margin-top: -100px
+                color: #FF0000
+        .post
+            .post-nav-container
+                margin-top: 30px
+                
+        .post-title
+            font-size: 1.9em
+            font-weight: bolder
+            margin-top: 0px
+            letter-spacing: .2px
+            text-transform: capitalize
+            margin-bottom: .5em
+            font-family: Cuprum, sans-serif;
+        a.article-title
+            text-decoration: none
+            color: black
+            // text-transform: uppercase
+        .tags
+            font-size: 0.8em;
+
+    a.read-more-butt
+        text-align: center;
+        color: #ffffff;
+        width: 10em
+        display: block
+        background-color: #000;
+        text-transform: uppercase;
+        transition: background-color .3s;
+        border-radius: 0.125rem; 
+        padding: 6px;
+        font-size: 1.1rem
+        font-weight: bold
+        margin-bottom: 5em
+        font-family: Cuprum, sans-serif
+        &:hover
+            background-color: #e51843
+            text-decoration: none
+            color: #fff
+
+    .poster
+        color: rgb(158, 171, 179);
+        margin-top: 5px
+        line-height: 1.42857143;
+        font-size: 0.8em
+        margin-bottom: 10px
+        a
+            text-decoration: none
+        .post-image
+            width: 24px
+            height: 24px
+            margin-right: 9px
+            border-radius: 100%
+
+    .share-buttons
+        list-style-type: none
+        margin-top: 5em
+        text-decoration: none
+        padding-left: 0px
+        li
+            display: inline
+            &:hover
+                color: #e51843 
+                cursor: pointer
+
+    .div-wapper
+        .post-pagination
+            .newer-post, .next-post
+                a
+                    text-decoration: none 
+                    &:hover
+                        color: black
+        margin-top: 2em
+        .after-post-margin
+            margin-bottom: 5em
+
+    .feature-aside
+        margin-top: 50%;
+        padding-top: 3em;
+
+    .recent-posts-header
+        font-family: Cuprum, sans-serif
+        font-style: normal
+        font-weight: bolder
+        font-size: 18px
+        line-height: 18px
+        color: #00B233
+
+    .recent-post
+        background: #dee2e68a
+        font-family: Cuprum, sans-serif
+        a
+            font-weight: bold
+            color: black
+            font-size: 14px;
+            &:hover
+                color: red
+                text-decoration: none 
+
+        .featured-tags
+            margin: 0
+            a
+                color: #007bff !important
+                font-size: 12px
+                &:hover
+                    color: red !important
+        .time-since-post
+            font-size: 11px
+
+
+
+    .current-post
+        border-top: 5px solid red
+        border-bottom: 1px solid red
+        padding-top: 20px
+        padding-bottom:  20px
+        margin-bottom: 20px
+        font-family: "Open Sans", sans-serif
+        font-style: normal
+        font-weight: 900
+        font-size: 14px
+        line-height: 18px
+
+    .pagination
+        margin-bottom: 30px
+        .newer-posts, .page-number, .older-posts, .no-new-post, .no-older-post
+            padding: 5px 10px;
+            font-family: "Open Sans", sans-serif;
+            color: #000000
+            font-size: 10px
+            font-weight: bold
+            border-radius: 5px;
+            margin-right: 5px
+        .newer-posts, .page-number, .older-posts
+            border: 2px solid
+        .no-new-post, .no-older-post
+            border: 2px solid grey
+        a
+            color: black
+            &:hover
+                text-decoration: none
+                border: 2px solid #e51843
+    .disqus_thread
+        margin-bottom: 40px
+
+@import './overlaysearch'
+
+@import "./mediaqueries"
+
+@import "./utterances"
+                

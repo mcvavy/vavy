@@ -1,0 +1,48 @@
+{{!< default}} 
+
+<div class="div-wapper">
+        <div class="row">
+        <div class="col-md-4 offset-md-5">
+                {{pagination}}
+        </div>
+    </div>
+    {{#foreach posts}} 
+        <div class="row">
+            <div class="col-md-2 blog-date">
+                <div class="text-center">
+                    <time datetime="{{date format=" YYYY-MM-DD "}}">
+                        <span class="post-day">{{date format="DD"}}</span>
+                        <span class="post-month-year"><b>{{date format="MMM"}} {{date format="YYYY"}}</b></span>
+                    </time>
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <article class="{{post_class}} post">
+                    <h2 class="post-title">
+                        <a href="{{url}}" title="{{title}}" class="article-title">{{title}}</a>
+                    </h2>
+                    {{#if tags}}
+                    <p class="tags">
+                        <i class="fas fa-tags"></i> {{tags separator=", "}}  <span class="badge badge-pill badge-secondary"><i class="far fa-clock text-white"></i> {{reading_time seconds=(t "less than 1 min read") minute=(t "1 min read") minutes=(t "% mins read")}}</span>
+                    </p>
+                    {{/if}}
+
+                    <p>{{excerpt characters="300"}}&hellip;</p>
+
+                    <a href="{{url}}" title="{{title}}" class="read-more-butt text-center">Read more</a>
+
+                    <div class="poster">                
+                    </div>
+                </article>
+            </div>
+        </div>
+         <hr>
+    {{/foreach}}
+
+    <div class="row">
+        <div class="col-md-4 offset-md-5">
+                {{pagination}}
+        </div>
+    </div>
+</div>

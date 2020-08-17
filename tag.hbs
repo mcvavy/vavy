@@ -1,0 +1,33 @@
+{{!< default}} 
+
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+      <a class="btn read-more-butt" href="{{@site.url}}" title="Back to homepage">Back to home</a>
+
+      <div class="tag-title">
+        <p>All articles tagged as <b>{{tag.name}}</b></p>
+      </div>
+
+      {{#foreach posts}}
+        <article class="{{post_class}} post">
+          <h2 class="post-title">
+              <a href="{{url}}" title="{{title}}" class="article-title">{{title}}</a>
+          </h2>
+          {{#if tags}}
+          <p class="tags">
+              <i class="fas fa-tags"></i> {{tags separator=", "}}  <span class="badge badge-pill badge-secondary"><i class="far fa-clock text-white"></i> {{reading_time seconds=(t "less than 1 min read") minute=(t "1 min read") minutes=(t "% mins read")}}</span>
+          </p>
+          {{/if}}
+
+            <p>{{excerpt characters="200"}}&hellip;</p>
+
+            <a href="{{url}}" title="{{title}}" class="read-more-butt text-center">Read more</a>
+        </article>
+      {{/foreach}} 
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 offset-md-1 d-inline-flex justify-content-center">
+            {{>pagination}}
+  </div>
+</div>
