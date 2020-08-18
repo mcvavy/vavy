@@ -167,8 +167,9 @@ const stylusWatcher = () => watch('assets/src/vavy.styl', transpileStylus);
 const cssConcat = () => watch('assets/src/transpiledcss/**', concatCSSandMove);
 const cssWatcher = () => watch('assets/css/**', css);
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs'], hbs);
-const watcher = parallel(stylusWatcher, cssConcat, cssWatcher, hbsWatcher);
-const build = series(transpileStylus, concatCSSandMove, css, js);
+const zips = () => watch(['assets/built/**'], zipper);
+const watcher = parallel(stylusWatcher, cssConcat, cssWatcher, hbsWatcher,zips);
+const build = series(transpileStylus, concatCSSandMove, css, js, zipper);
 
 exports.build = build;
 exports.zip = series(build, zipper);
