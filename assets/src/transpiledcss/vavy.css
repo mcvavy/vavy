@@ -65,8 +65,8 @@ blockquote {
   font-size: 1.1em;
 }
 .left-default-column .quick-tag {
-  margin-top: 60px;
-  margin-bottom: 5px;
+  margin-top: 1.875em;
+  margin-bottom: 0.313em;
 }
 .left-default-column .topics {
   font-family: 'Cuprum', sans-serif;
