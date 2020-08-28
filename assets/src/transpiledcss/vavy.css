@@ -155,7 +155,7 @@ blockquote {
   font-family: Cuprum, sans-serif;
 }
 .right-default-column .content .post-body {
-  font-family: "Open sans", Roboto;
+  font-family: "Fira Code", Consolas, "Open sans", Roboto;
   font-size: 0.85em;
 }
 .right-default-column .content a.article-title {
