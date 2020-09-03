@@ -10,6 +10,7 @@ AccountName="codesrealmblogsa"
 
 Domain="https://codesrealm.com"
 
+#Call into ghost API, fetch posts Json data and write the json into the blogsearch.hbs file 
 curl -sb -H $AcceptHeader $localGhostAPI > $writeLocation
 
 #Delete the static folder
