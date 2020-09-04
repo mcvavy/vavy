@@ -10,6 +10,10 @@ AccountName="codesrealmblogsa"
 
 Domain="https://codesrealm.com"
 
+cdnEndpoint="ghost"
+cdnProfileName="ghost"
+resourceGroupName="ghostBlog"
+
 #Call into ghost API, fetch posts Json data and write the json into the blogsearch.hbs file 
 curl -sb -H $AcceptHeader $localGhostAPI > $writeLocation
 
@@ -24,3 +28,6 @@ gssg --url $Domain --dest "${staticLocation}static"
 
 #Upload the static content to azure storage container
 az storage azcopy blob upload --container $Container --account-name $AccountName -s "${staticLocation}static/*" --recursive
+
+#Purge the CDN content to allow new content available
+az cdn endpoint purge -g $resourceGroupName -n $cdnEndpoint --profile-name $cdnProfileName --content-paths '/*'
