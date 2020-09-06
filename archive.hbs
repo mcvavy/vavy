@@ -1,0 +1,26 @@
+{{!< default}}
+
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <a class="btn read-more-butt" href="{{@site.url}}" title="Back to homepage">Back to home</a>
+
+    <div class="tag-title">
+      <p>Post Archive<b>{{tag.name}}</b></p>
+    </div>
+    {{#get "posts"}}
+        <p>{{t "There are {total} posts in total" total=pagination.total}}</p>
+    {{/get}}
+    
+    {{#get "posts"}}
+      {{#foreach posts}}
+      <article style="margin-top: 2em;" class='post-date-{{date format="M"}}'>
+        <div class="post-label post-title">{{date format="MMMM YYYY"}}</div>
+        <span>{{date format="DD-MMMM"}}</span>
+        <a class="post-link" href="{{url}}">
+          <span class=".archive-post-title">{{title}}</span>
+        </a>
+      </article>
+      {{/foreach}}
+    {{/get}}
+  </div>
+</div>
