@@ -30,7 +30,7 @@ blockquote
     
     .blog
         font-weight: 400
-        letter-spacing: -3px
+        letter-spacing: -0.1em
         color: #fff
         font-size: 1.7em
         background: #e51843;
@@ -43,8 +43,8 @@ blockquote
         font-size: 1.1em
 
     .quick-tag
-        margin-top: 60px;
-        margin-bottom: 5px
+        margin-top: 1.875em;
+        margin-bottom: 0.313em;
     .topics
         font-family: 'Cuprum', sans-serif;
         font-size: 1.1em
@@ -89,7 +89,7 @@ blockquote
         margin: 0 auto
 
     .content
-        font-family: Georgia, sans-serif;
+        font-family: "Open sans", Roboto;
         font-size: 1.2em
         color: #343f44
         line-height: 1.6em
@@ -102,7 +102,7 @@ blockquote
                 font-weight: 900;
                 // color: #e51843;
                 color: #818182
-                margin-bottom: -4px
+                margin-bottom: -0.1em
                 margin-top: 9px;
             .post-month-year
                 text-transform: uppercase;
@@ -121,6 +121,18 @@ blockquote
             text-transform: capitalize
             margin-bottom: .5em
             font-family: Cuprum, sans-serif;
+        
+        .archive-post-title
+            font-size: 0.9em
+            font-weight: bolder
+            letter-spacing: .2px
+            text-transform: capitalize
+            font-family: Cuprum, sans-serif;
+
+        .post-body
+            font-family: "Fira Code", Consolas,"Open sans", Roboto
+            font-size: 0.85em
+
         a.article-title
             text-decoration: none
             color: black
@@ -137,7 +149,6 @@ blockquote
         text-transform: uppercase;
         transition: background-color .3s;
         border-radius: 0.125rem; 
-        padding: 6px;
         font-size: 1.1rem
         font-weight: bold
         margin-bottom: 5em
@@ -216,8 +227,6 @@ blockquote
         .time-since-post
             font-size: 11px
 
-
-
     .current-post
         border-top: 5px solid red
         border-bottom: 1px solid red
@@ -236,7 +245,7 @@ blockquote
             padding: 5px 10px;
             font-family: "Open Sans", sans-serif;
             color: #000000
-            font-size: 10px
+            font-size: 8px
             font-weight: bold
             border-radius: 5px;
             margin-right: 5px
@@ -249,8 +258,28 @@ blockquote
             &:hover
                 text-decoration: none
                 border: 2px solid #e51843
-    .disqus_thread
-        margin-bottom: 40px
+                
+h1, h2, h3, h4, h5, h6
+    font-family: Cuprum;
+
+hr
+    margin-bottom: .5em
+
+.post-date-1 + .post-date-1 .post-label,
+.post-date-2 + .post-date-2 .post-label,
+.post-date-3 + .post-date-3 .post-label,
+.post-date-4 + .post-date-4 .post-label,
+.post-date-5 + .post-date-5 .post-label,
+.post-date-6 + .post-date-6 .post-label,
+.post-date-7 + .post-date-7 .post-label,
+.post-date-8 + .post-date-8 .post-label,
+.post-date-9 + .post-date-9 .post-label,
+.post-date-10 + .post-date-10 .post-label,
+.post-date-11 + .post-date-11 .post-label,
+.post-date-12 + .post-date-12 .post-label {
+  display: none;
+  margin-bottom: 2em
+}
 
 @import './overlaysearch'
 

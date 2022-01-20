@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset "/vendor/css/bootstrap/bootstrap.min.css"}}">
     <link rel="shortcut icon" href="{{asset "/images/favicon.ico"}}">
@@ -33,7 +34,7 @@
     {{!-- Styles'n'Scripts --}}
     {{!-- <link rel="stylesheet" type="text/css" href="{{asset "built/theme.css"}}" /> 
     <link rel="stylesheet" type="text/css" href="{{asset "built/global.css"}}" />  --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" /> 
+    <link rel="stylesheet" type="text/css" href="{{asset "built/vavy.css"}}" /> 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}} 
     {{ghost_head}}
 
@@ -51,8 +52,11 @@
                 <p class="topics"><a href="/tag/c-2/">C# / .Net</a></p>
                 <p class="topics"><a href="/tag/javascript/">JavaScript / TypeScript</a></p>
                 <p class="topics"><a href="/tag/azure/">Azure</a></p>
-                <p class="topics"><a href="/tag/python/">Python</a></p>
+                {{!-- <p class="topics"><a href="/tag/python/">Python</a></p> --}}
                 <p class="topics"><a href="/tag/java/">Kotlin / Java</a></p>
+
+                <p class="quick-tag"><u>Notes</u></p>
+                <p class="topics"><a href="https://www.notion.so/Azure-Certification-5d135c92ca8143c9b3f37829f7e6b208" target="_blank">Azure Certification Notes</a></p>
 
                 {{!-- <p class="quote">
                 <i class="fa fa-quote-left" aria-hidden="true"></i> Any fool can write code that a computer can understand. Good programmers write code that humans can understand <i class="fa fa-quote-right" aria-hidden="true"></i> - <em>Martin Fowler</em>
@@ -68,7 +72,8 @@
                             <div class="col-md-12 navigation-link text-right">
                                 <span><a href="/">HOME</a></span>
                                 <span><a href="/about">ABOUT</a></span>
-                                <span><a href="/projects">PROJECTS</a></span>
+                                <span><a href="/archive">ARCHIVES</a></span>
+                                {{!-- <span><a href="/projects">PROJECTS</a></span> --}}
                                 <span><a href="/contact">CONTACT</a></span>
                                 <span id="overlaytrigger"><i class="fas fa-search"></i></span>
                             </div>
@@ -101,13 +106,13 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script> 
+    <script type="text/javascript" src="{{asset "built/vavy.js"}}"></script> 
     
     {{#if pagination.pages}}
         <script>
             var maxPages = parseInt('{{pagination.pages}}');
         </script>
-        <script src="{{asset "js/infinitescroll.js"}}"></script> 
+        <script src="{{asset "built/vavy.js"}}"></script> 
     {{/if}} 
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
@@ -153,14 +158,16 @@
             return false;
         });
 
+        var apiPosts = {{>blogsearch}}
+
         //New bloodhound to make it searchable
         var searchDataSource = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
-            local: {{>blogsearch}}
+            local: apiPosts.posts
         });
 
-                    //Build the typeahead
+        //Build the typeahead
         $('#overlay-contentid .typeahead').typeahead(null, {
             //https://github.com/twitter/typeahead.js/blob/master/doc/jquery_typeahead.md#jquerytypeaheadoptions-datasets
                 name: 'search',
